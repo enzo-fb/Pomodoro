@@ -26,31 +26,35 @@ def pomodoro(tempo, descanso):
     min = 0
     seg = 0
     if descanso == True:
-        while min != tempo:
-            os.system('clear')
-            print("-"*10+"Rest time".upper()+"-"*10)
-            if seg<10:
-                print(f"Time: {min}:0{seg}")
-            else:
-                print(f"Time: {min}:{seg}")
-            time.sleep(1)
-            seg +=1 
-            if seg == 60:
-                seg = 0
-                min += 1
+        with keyboard.Listener(on_press=on_press) as listener:
+            while min != tempo:
+                os.system('clear')
+                print("-"*10+"Rest time".upper()+"-"*10)
+                if seg<10:
+                    print(f"Time: {min}:0{seg}")
+                else:
+                    print(f"Time: {min}:{seg}")
+                time.sleep(1)
+                seg +=1 
+                if seg == 60:
+                    seg = 0
+                    min += 1
+            listener.join()
     else:
-        while min != tempo:
-            os.system('clear')
-            print("-"*10+"Focus time".upper()+"-"*10)
-            if seg<10:
-                print(f"Time: {min}:0{seg}")
-            else:
-                print(f"Time: {min}:{seg}")
-            time.sleep(1)
-            seg +=1 
-            if seg == 60:
-                seg = 0
-                min += 1
+        with keyboard.Listener(on_press=on_press) as listener:
+            while min != tempo:
+                os.system('clear')
+                print("-"*10+"Focus time".upper()+"-"*10)
+                if seg<10:
+                    print(f"Time: {min}:0{seg}")
+                else:
+                    print(f"Time: {min}:{seg}")
+                time.sleep(1)
+                seg +=1 
+                if seg == 60:
+                    seg = 0
+                    min += 1
+            listener.join()
 
 while True:
     print("-"*10+"Welcome Pomodoro Time"+"-"*10)   
@@ -58,8 +62,7 @@ while True:
     escolha = input()     
     if(escolha == "1"):
         ciclos = 0
-        with keyboard.Listener(on_press=on_press) as listener:
-            while running:
+        while running:
                 pomodoro(1,False)
                 if not running:
                     break
@@ -74,7 +77,7 @@ while True:
                     time.sleep(3)
                 if not running:
                     break
-            listener.join()
+
 
     elif (escolha == "2"):
         minutos_foco = input("Enter the focus time (in minutes):")
