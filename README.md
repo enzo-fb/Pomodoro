@@ -12,13 +12,16 @@ Este é um aplicativo simples de timer Pomodoro, implementado em Python. Ele per
 
 ### Requisitos
 
-1. Python 3.x
-2. Biblioteca `colorama`:
-   Para instalar a biblioteca `colorama`, você pode usar o seguinte comando:
+1. Python3
+2. Instalar Dependências <br>
+Para instalar todas as dependências necessárias para o projeto, basta usar o arquivo `requirements.txt`:
+   1. Clone este repositório ou baixe os arquivos do projeto.
+   2. No terminal, navegue até o diretório do projeto e execute o comando abaixo para instalar as dependências:
 
-   ```bash
-   pip install colorama
-   ```
+
+```
+pip install -r requirements.txt
+```
 
 ### Instruções
 
