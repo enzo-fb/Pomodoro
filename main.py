@@ -1,5 +1,6 @@
 import os
 import time
+from colorama import Fore
 # Função que será chamada sempre que uma tecla for pressionada
 focus = "-"*10+"Focus time".upper()+"-"*10
 restTime = "-"*10+"Rest time".upper()+"-"*10
@@ -11,9 +12,9 @@ def pomodoro(tempo, descanso):
                 os.system('clear')
                 print(restTime + "\n")
                 if seg<10:
-                    print(f"Time: {min}:0{seg}".center(len(restTime)))
+                    print(Fore.RED+f"Time: {min}:0{seg}".center(len(restTime))+Fore.RESET)
                 else:
-                    print(f"Time: {min}:{seg}".center(len(restTime)))
+                    print(Fore.RED+f"Time: {min}:{seg}".center(len(restTime))+Fore.RESET)
                 time.sleep(1)
                 seg -=1 
                 if seg == 0:
@@ -24,9 +25,9 @@ def pomodoro(tempo, descanso):
                 os.system('clear')
                 print(focus+ "\n")
                 if seg<10:
-                    print(f"Time: {min}:0{seg}".center(len(focus)))
+                    print(Fore.RED+f"Time: {min}:0{seg}".center(len(focus))+Fore.RESET)
                 else:
-                    print(f"Time: {min}:{seg}".center(len(focus)))
+                    print(Fore.RED+f"Time: {min}:{seg}".center(len(focus))+Fore.RESET)
                 time.sleep(1)
                 seg -=1 
                 if seg == 0:
