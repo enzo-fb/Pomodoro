@@ -1,27 +1,7 @@
 import os
 import time
-from pynput import keyboard
-running = True
 # Função que será chamada sempre que uma tecla for pressionada
-def on_press(key):   
-    global running
-    try:
-        # Verifica se a tecla pressionada é 'Enter'
-        if key == keyboard.Key.enter:
-            print("Exiting...")
-            running = False  # Sai do loop
-            return False  # Interrompe o listener
-    except AttributeError:
-        print(f"Tecla especial pressionada: {key}")
 
-
-# Inicia o listener para capturar os eventos de teclado
-
-def segundos(x):
-    print(x)
-    time.sleep(1)
-    if(x != 60):
-        return segundos(x+1)
 def pomodoro(tempo, descanso):
     min = 0
     seg = 0
@@ -37,9 +17,7 @@ def pomodoro(tempo, descanso):
                 seg +=1 
                 if seg == 60:
                     seg = 0
-                    min += 1
-
-            
+                    min += 1         
     else:
             while min != tempo: 
                 os.system('clear')
@@ -67,7 +45,7 @@ while True:
                 ciclos += 1
                 if ciclos == 4:
                     pomodoro(15, True)
-                    decisao = int (input("Enter 1 to restart the cycle or 2 to go back to the main menu"))
+                    decisao = int (input("Enter 1 to restart the cycle or 2 to go back to the main menu:\n"))
                     if decisao == 2:
                         break
                     print("Returning to focus...")
@@ -79,16 +57,16 @@ while True:
         pass
     elif (escolha == "2"):
         minutos_foco = int(input("Enter the focus time (in minutes):"))
-        minutos_descanso_menor = int (input("Enter the shorter break time (in minutes):"))
-        minutos_descanso_maior = int (input("Enter the longer break time (in minutes):"))
-        qntd_ciclos = int (input("Number of cycles until the long break:"))
+        minutos_descanso_menor = int (input("Enter the shorter break time (in minutes):\n"))
+        minutos_descanso_maior = int (input("Enter the longer break time (in minutes):\n"))
+        qntd_ciclos = int (input("Number of cycles until the long break:\n"))
         ciclos = 0
         while True:
                 pomodoro(minutos_foco,False)
                 ciclos += 1
                 if ciclos == qntd_ciclos:
                     pomodoro(minutos_descanso_maior, True)
-                    decisao = input("Enter 1 to restart the cycle or 2 to go back to the main menu")
+                    decisao = int (input("Enter 1 to restart the cycle or 2 to go back to the main menu:\n"))
                     if decisao == 2:
                         break
                     print("Returning to focus...")
@@ -99,5 +77,6 @@ while True:
                     time.sleep(3)
         pass
     elif(escolha == "3"):
+        print("Exiting...")
         exit()
         
