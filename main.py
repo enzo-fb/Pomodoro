@@ -1,36 +1,37 @@
 import os
 import time
 # Função que será chamada sempre que uma tecla for pressionada
-
+focus = "-"*10+"Focus time".upper()+"-"*10
+restTime = "-"*10+"Rest time".upper()+"-"*10
 def pomodoro(tempo, descanso):
-    min = 0
-    seg = 0
+    min = tempo
+    seg = 59
     if descanso == True:
-            while min != tempo:
+            while min >= 0:
                 os.system('clear')
-                print("-"*10+"Rest time".upper()+"-"*10)
+                print(restTime + "\n")
                 if seg<10:
-                    print(f"Time: {min}:0{seg}")
+                    print(f"Time: {min}:0{seg}".center(len(restTime)))
                 else:
-                    print(f"Time: {min}:{seg}")
+                    print(f"Time: {min}:{seg}".center(len(restTime)))
                 time.sleep(1)
-                seg +=1 
-                if seg == 60:
-                    seg = 0
-                    min += 1         
+                seg -=1 
+                if seg == 0:
+                    seg = 59
+                    min -= 1         
     else:
-            while min != tempo: 
+            while min >= 0 : 
                 os.system('clear')
-                print("-"*10+"Focus time".upper()+"-"*10)
+                print(focus+ "\n")
                 if seg<10:
-                    print(f"Time: {min}:0{seg}")
+                    print(f"Time: {min}:0{seg}".center(len(focus)))
                 else:
-                    print(f"Time: {min}:{seg}")
+                    print(f"Time: {min}:{seg}".center(len(focus)))
                 time.sleep(1)
-                seg +=1 
-                if seg == 60:
-                    seg = 0
-                    min += 1
+                seg -=1 
+                if seg == 0:
+                    seg = 59
+                    min -= 1
 
             
 
