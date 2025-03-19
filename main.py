@@ -67,12 +67,16 @@ while True:
                 ciclos += 1
                 if ciclos == 4:
                     pomodoro(15, True)
+                    decisao = input("Enter 1 to restart the cycle or 2 to go back to the main menu")
+                    if decisao == 2:
+                        break
                     print("Returning to focus...")
                     ciclos = 0
                 else: 
                     pomodoro(5,True)
                     print("Returning to focus...")
                     time.sleep(3)
+        pass
     elif (escolha == "2"):
         minutos_foco = int(input("Enter the focus time (in minutes):"))
         minutos_descanso_menor = int (input("Enter the shorter break time (in minutes):"))
@@ -84,6 +88,9 @@ while True:
                 ciclos += 1
                 if ciclos == qntd_ciclos:
                     pomodoro(minutos_descanso_maior, True)
+                    decisao = input("Enter 1 to restart the cycle or 2 to go back to the main menu")
+                    if decisao == 2:
+                        break
                     print("Returning to focus...")
                     ciclos = 0
                 else: 
