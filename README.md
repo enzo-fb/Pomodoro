@@ -1,4 +1,4 @@
-# Pomodoro Timer
+# Pomodoro
 
 Este é um aplicativo simples de timer Pomodoro, implementado em Python. Ele permite que o usuário escolha entre o timer Pomodoro tradicional ou personalize os tempos para se adaptar às suas necessidades. A implementação utiliza o módulo `time` para controle de tempo e `colorama` para colorir a interface do terminal.
 
